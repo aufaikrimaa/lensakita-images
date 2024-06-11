@@ -1,7 +1,6 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
-// const mime = require("mime");
 const app = express();
 const port = process.env.PORT || 8000;
 
@@ -21,12 +20,8 @@ app.get("/images/:imageName", (req, res) => {
       return res.status(404).send("Image not found");
     }
 
-    // // Menentukan tipe konten berdasarkan ekstensi file
-    // const contentType = mime.getType(imagePath);
-
     // Mengatur header Cache-Control
-    res.header("Cache-Control", "max-age=31536000, must-revalidate");
-    // res.header("Content-Type", contentType);
+    res.header("Cache-Control", "max-age=31536000");
 
     // Mengatur header Last-Modified
     res.header("Last-Modified", stats.mtime.toUTCString());
@@ -34,7 +29,6 @@ app.get("/images/:imageName", (req, res) => {
     // Mengatur header ETag
     res.header("ETag", `W/"${stats.size}-${stats.mtime.getTime()}"`);
 
-    // Mengatur header lainnya yang mungkin dibutuhkan
     res.header("Accept-Ranges", "bytes");
 
     res.sendFile(imagePath);
