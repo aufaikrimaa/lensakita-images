@@ -21,7 +21,7 @@ app.get("/images/:imageName", (req, res) => {
     }
 
     // Mengatur header Cache-Control
-    res.header("Cache-Control", "max-age=31536000");
+    res.header("Cache-Control", "max-age=31536000, must-revalidate");
 
     // Mengatur header Last-Modified
     res.header("Last-Modified", stats.mtime.toUTCString());
