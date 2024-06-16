@@ -30,9 +30,7 @@
         },
         { "key": "Last-Modified", "value": "${lastModified}" },
         { "key": "ETag", "value": "${etag}" },
-        { "key": "Accept-Ranges", "value": "bytes" },
-        { "key": "Content-Range", "value": "${contentRange}" },
-        { "key": "Content-Length", "value": "${chunkSize}" }
+        { "key": "Accept-Ranges", "value": "bytes" }
       ]
     }
   ]
