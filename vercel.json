@@ -20,6 +20,18 @@
           "value": "bytes"
         }
       ]
+    },
+    {
+      "source": "/videos/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, must-revalidate"
+        },
+        { "key": "Last-Modified", "value": "${lastModified}" },
+        { "key": "ETag", "value": "${etag}" },
+        { "key": "Accept-Ranges", "value": "bytes" }
+      ]
     }
   ]
 }
